@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{%block content %}
+<div class="container-fluid">  
+    <label><strong>Rank(1~20)<hr class="style2"></strong></label>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for piece in pieces.all %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ piece.image.url }}" alt=" Card image cap">
+                            <div class="card-body">
+                                <h4>{{ piece.title }}</h4>
+                                <p class="card-text">{{ piece.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>          
+    </div>
+    <label><strong>Recent Design<hr class="style2"></strong></label>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for piece in pieces.all %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ piece.image.url }}" alt=" Card image cap">
+                            <div class="card-body">
+                                <h4>{{ piece.title }}</h4>
+                                <p class="card-text">{{ piece.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>          
+    </div>
+</div>
+{% endblock %}
