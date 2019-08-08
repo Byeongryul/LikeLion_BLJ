@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>게시글 상세 - {{ article.pk }}. {{ article.title }}</title>{% endblock title %}
+
+{%block content %}
+{% load staticfiles %}
+<div class="container">
+    <div class = "row justify-content-md-center">
+        {% if feed %}
+            <img src="feed.image.url" class="img-fluid w-100" alt="Responsive image">
+        {% else %}
+            <img src="{% static 'no_image.gif' %}" class="img-fluid w-100" alt="Responsive image">
+        {% endif %}
+    </div>
+    <div class = "row">
+        <div class = "col">
+
+        </div>
+        <div class="col">
+
+        </div>       
+    </div>
+    <div class = "row">
+
+    </div>
+    <div class = "row">
+        
+    </div>
+    
+    
+</div>

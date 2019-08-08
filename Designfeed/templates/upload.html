@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class = "alert alert-{{ message.tags }} alert-dismissible" role = "alert">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<form action="." method = "post" class="form-horizontal">
+    {% csrf_token %}                                     <!-- csrftoken 태그 -->
+    <input type="hidden" name="action" value="{% if feed %}update{% else %}create{% endif %}">   <!-- action -->
+    <div class="form-group">
+        <label for="exampleFormControlInput1">제목</label>
+        <input class="form-control" type="text" placeholder="Default input" name = "title" value = "{{ feed.title }}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">내용</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name = "discription">{{feed.discription}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">파일 첨부</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">작성자</label>
+        <input class="form-control" type="text" placeholder="Default input" name = "author" value = "{{ feed.author }}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">작성 날짜</label>
+        <p>{{ feed.created_at | date:"Y-m-d H:i" }}</p>
+        <input class="form-control" type="text" placeholder="Default input" name = "author" value = "{{ feed.author }}">
+    </div>
+</form>
+<button class="btn btn-primary" type="submit">피드 저장</button>
+
+{% endblock content %}
