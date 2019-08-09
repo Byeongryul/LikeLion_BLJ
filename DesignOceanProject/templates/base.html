@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% block title %}   <!-- 페이지별 타이틀 공간 -->
+    {{block.super}}
+    <title>Design Ocean</title>
+    {% endblock title %}
+
+    {% block meta %}    <!-- 페이지별 메타 데이터 공간 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock meta %}
+    
+    {% block scc %}     <!-- 페이지별 css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% endblock scc %}
+
+    <link rel="shortcut icon" sizes="72x72" href="{% static 'prolog.png'%}" type="image/x-icon">
+</head>
+<body>
+    {% block nav %}
+    <!--메인 선택-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgba(216, 60, 138, 0.7)">
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: seashell">
+            <img src="{% static 'prolog.PNG' %}" width="30" height="30" class="d-inline-block align-top" alt="not found">
+            Design Ocean
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tag
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'home' %}">Blue Print</a>
+                        <a class="dropdown-item" href="{% url 'home' %}">Picture</a>
+                        <a class="dropdown-item" href="{% url 'home' %}">Paint</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" action="{% url 'home' %}">
+                        <input class="form-control mr-sm-2" type="search" placeholder="example: {{reccentTag}}" aria-label="Search">
+                        <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+            <span class="navbar">
+                <ul class="navbar-nav mr-auto">
+                    <div id="myPage-button">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Option
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="transform: translateX(-30%)">
+                                {% if user.is_active %}
+                                    <a class="dropdown-item" href="{% url 'new' %}">Upload Design</a>
+                                    <a class="dropdown-item" href="{% url 'privatepage' %}">My myPage</a>
+                                    <a class="dropdown-item" href="/accounts/logout">Log Out</a>
+                                {%endif%}
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </span>
+        </div>
+    </nav>
+    <!-- {% if not user.is_active %}
+    <script>history.go(-1)</script>
+    {% endif %} -->
+    <div class="container-fluid">
+    {% endblock nav %}
+    {% block content %}
+    {% endblock %}
+    </div>
+    {% block scripts %}    <!-- 페이지별 스크립트 공간 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% endblock scripts %}
+</body>
+</html>

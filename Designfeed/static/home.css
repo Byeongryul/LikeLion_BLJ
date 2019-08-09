@@ -1,0 +1,10 @@
+.home-container{
+    position: relative;
+    width: 100%;
+}
+
+.home-container p{
+    position: absolute;
+    right: 0;
+    top: 0;
+}

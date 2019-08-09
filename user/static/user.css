@@ -1,0 +1,60 @@
+.login-main{
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    height: 400px;
+    width: 100%;
+
+    padding: 62px 0 0;
+    margin: 0 auto;
+}
+
+.login-main img{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 100%;
+}
+
+.login-main h1{
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+
+.login-main p{
+    position: absolute;
+    text-align: center;
+}
+
+#login-button{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#login-status{
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.registration {
+    width: 360px;
+    margin: 0 auto;
+}
+p {
+    text-align: center;
+}
+label {
+    width: 50%;
+    text-align: left;
+}
+.control-label {
+    width: 100%;
+}
+.registration .form-actions > button {
+    width: 100%;
+}

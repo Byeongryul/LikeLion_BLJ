@@ -17,6 +17,9 @@ from user.forms import UserRegistrationForm, LoginForm, VerificationEmailForm
 
 from django.http import HttpResponseRedirect
 
+def prolog(request):
+    return render(request, 'prolog.html')
+
 class UserRegistrationView(VerifyEmailMixin, CreateView):
     model = get_user_model()  
     form_class = UserRegistrationForm
@@ -55,7 +58,7 @@ class UserLoginView(LoginView):
     template_name = 'user/login_form.html'
 
     def form_invalid(self, form):
-        message.error(self.request, '로그인에 실패하셨습니다.', extra_tags='danger')
+        messages.error(self.request, '로그인에 실패하셨습니다.', extra_tags='danger')
         return super().form_invalid(form)
 
 class ResendVerifyEmailView(VerifyEmailMixin, FormView):

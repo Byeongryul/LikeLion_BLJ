@@ -1,33 +1,47 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block nav %}
+{% endblock nav %}
+
 {% load i18n %}
 
 {% block title %}<title>회원 가입</title>{% endblock %}
 
+{% block content %}
+<!-- {% include 'user/partials/social_login_panel.html'%} -->
 {% block css %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<style>
-    .registration {
-        width: 360px;
-        margin: 0 auto;
-    }
-    p {
-        text-align: center;
-    }
-    label {
-        width: 50%;
-        text-align: left;
-    }
-    .control-label {
-        width: 100%;
-    }
-    .registration .form-actions > button {
-        width: 100%;
-    }
-</style>
+{{block.super}}
+<link rel="stylesheet" href="{% static 'user.css' %}">
 {% endblock css %}
 
-{% block content %}
-{% include 'user/partials/social_login_panel.html'%}
+<div class="login-main">
+    <p>
+        <h1>
+            <img src="{% static 'prolog.png' %}" alt="not found">
+            Design Ocean
+        </h1>
+    </p>              
+</div>
+<div class="login-main">
+    {% if user.is_active %}
+    <div id="login-status">
+        {{user.username}} 님이 로그인 중
+        <a href="/accounts/logout">로그아웃</a><br>
+    </div>
+    {% else %}
+    <div id="login-button">
+        <!-- <a class="btn btn-outline-success" href="/accounts/signup" role="button">회원가입</a> -->
+        <a class="btn btn-outline-info" href="{% provider_login_url 'google' %}" role="button">구글 로그인</a>
+    </div>
+    <div id="login-status">
+            당신 로그인 해야댐
+    </div>
+    {% endif %}   
+</div>
+
 <div class="panel panel-default registration">
     <div class="panel-heading">
         로그인하기

@@ -11,12 +11,13 @@ class DesignfeedListView(TemplateView):
     queryset = DesignFeed.objects.all()
     def get(self, request, *args, **kwargs):
         ctx = {
-            'feeds' : self.queryset.order_by('-created_at')
+            'feeds' : self.queryset.order_by('-created_at'),
+            'reccentTag' : 'None'
         }
         return self.render_to_response(ctx)
 
 class DesignfeedDetailView(TemplateView):
-    template_name = 'detail.html'
+    template_name = 'detail_page.html'
     queryset = DesignFeed.objects.all()
     pk_url_kwargs = 'feed_id'
     def get_object(self, queryset=None):

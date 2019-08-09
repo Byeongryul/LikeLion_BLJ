@@ -57,7 +57,7 @@ ROOT_URLCONF = 'DesignOceanProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['DesignOceanProject/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
