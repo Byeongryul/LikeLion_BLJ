@@ -73,7 +73,7 @@ class ResendVerifyEmailView(VerifyEmailMixin, FormView):
         else:
             self.send_verification_email(user)
         return super().form_valid(form)
-
+"""
 class SocialLoginCallbackView(GoogleLoginMixin,View): #아직 미완 소셜로그인 부분 전체 다 미완 고로 난 미안
     success_url = settings.LOGIN_REDIRECT_URL
     failure_url = settings.LOGIN_URL
@@ -99,3 +99,4 @@ class SocialLoginCallbackView(GoogleLoginMixin,View): #아직 미완 소셜로�
     def set_session(self, **kwargs):
         for key, value in kwargs.items():
             self.request.session[key] = value
+"""

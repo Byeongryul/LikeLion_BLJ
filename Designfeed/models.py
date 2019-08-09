@@ -16,7 +16,7 @@ def user_path(instance, filename): #파라미터 instance는 DesignFeed 모델�
 
 class DesignFeed(models.Model):
     title       = models.CharField('제목', max_length=126, null=False)
-    #owner       = models.ForeignKey(settings.AUTH_USER_MODEL)    # 로그인 한 사용자, many to one relation
+    owner       = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete = models.CASCADE)    # 로그인 한 사용자, many to one relation
     image       = models.ImageField(upload_to = user_path)     # 어디로 업로드 할지 지정
     discription = models.TextField('내용', null=False)
     author      = models.CharField('작성자', max_length=16, null=False)
