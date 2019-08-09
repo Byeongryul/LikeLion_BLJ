@@ -45,7 +45,7 @@ class UserVerificationView(TemplateView):
 
     def is_valid_token(self, **kwargs):
         pk = kwargs.get('pk')
-        token = kwargs.get('tonen')
+        token = kwargs.get('token')
         user = self.model.objects.get(pk=pk)
         is_valid = self.token_generator.check_token(user, token)
         if is_valid:

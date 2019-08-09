@@ -144,8 +144,8 @@ LOGOUT_REDIRECT_URL = '/feed/' #로그아웃시 접속되는 URL
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'username@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-gmail-password'
+EMAIL_HOST_USER = 'sn98192411@gmail.com'
+EMAIL_HOST_PASSWORD = 'jang98192411@'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 

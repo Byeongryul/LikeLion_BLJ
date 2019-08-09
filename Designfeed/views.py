@@ -4,6 +4,8 @@ from django.views.generic import TemplateView
 from Designfeed.models import DesignFeed
 from django.contrib import messages
 from django.conf import settings
+from dal import autocomplete
+from taggit.models import Tag
 # Create your views here.
 
 class DesignfeedListView(TemplateView):
@@ -89,3 +91,15 @@ class DesignfeedUpdateView(TemplateView):
 
 def detail(request):
     return render(request,'detail.html')
+"""
+class TagAutocomplete(dal.autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated():
+            return Tag.objects.none()
+
+        qs = Tag.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+        return qs
+    """

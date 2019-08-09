@@ -40,7 +40,9 @@
                     {% for feed in feeds %}
                     <div class="col-md-4">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ feed.image.url }}" alt=" Card image cap">
+                            <a href="{% url 'detail' feed.id %}">
+                                <img class="card-img-top" src="{{ feed.image.url }}" alt=" Card image cap">
+                            </a>
                             <div class="card-body">
                                 <h4>{{ feed.title }}</h4>
                                 <p class="card-text">{{ feed.description }}</p>
