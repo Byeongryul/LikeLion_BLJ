@@ -12,7 +12,7 @@ def user_path(instance, filename): #파라미터 instance는 DesignFeed 모델�
     extension = filename.split('.')[-1] # 배열로 만들어 마지막 요소를 추출하여 파일확장자로 지정
 
     # file will be uploaded to MEDIA_ROOT/user_<id>/<random>
-    return '%s/%s.%s' % (instance.owner.username, pid, extension) # 예 : wayhome/abcdefgs.png
+    return '%s/%s.%s' % (instance.owner.name, pid, extension) # 예 : wayhome/abcdefgs.png
 
 class DesignFeed(models.Model):
     title       = models.CharField('제목', max_length=126, null=False)

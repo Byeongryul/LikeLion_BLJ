@@ -11,7 +11,7 @@ class DesignfeedListView(TemplateView):
     queryset = DesignFeed.objects.all()
     def get(self, request, *args, **kwargs):
         ctx = {
-            'feeds' : self.queryset
+            'feeds' : self.queryset.order_by('-created_at')
         }
         return self.render_to_response(ctx)
 
